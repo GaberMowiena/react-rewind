@@ -3,7 +3,7 @@ import React, { useContext, useState, Component} from 'react';
 // components
 import EventsNav from '../components/EventCards/EventsNav.jsx';
 import EventsDisplay from '../components/EventCards/EventsDisplay.jsx'
-import TimeTravel from '../components/EventCards/TimeTravel.jsx';
+import FilterBar from '../components/EventCards/FilterBar.jsx';
 
 class Events extends Component {
   constructor(props) {
@@ -13,29 +13,22 @@ class Events extends Component {
 
   render() {
     const {
+      activeEventId,
       addAction,
       data,
-      toTheFuture,
-      toThePast,
-      setIsPlaying,
-      isPlaying,
-      setIsRecording,
-      isRecording,
+      searchChange,
+      filteredData,
+      searchField,
     } = this.props;
     return (
       <>
         <EventsNav />
+        <FilterBar searchChange={searchChange} searchField={searchField} />
         <EventsDisplay
           data={data}
+          filteredData={filteredData}
           addAction={addAction}
-        />
-        <TimeTravel
-          toTheFuture={toTheFuture}
-          toThePast={toThePast}
-          setIsRecording={setIsRecording}
-          isRecording={isRecording}
-          setIsPlaying={setIsPlaying}
-          isPlaying={isPlaying}
+          activeEventId={activeEventId}
         />
       </>
     );

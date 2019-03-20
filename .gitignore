@@ -1,2 +1,5 @@
 /node_modules
-/devtools_bundle
+src/browser/chrome/devtools_bundle
+.DS_Store
+src/.DS_Store/
+
